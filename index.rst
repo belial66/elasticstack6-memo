@@ -10,7 +10,7 @@ Welcome to Elastic Stack 6.x memo's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   Logstash/index
 
 Indices and tables
 ==================
