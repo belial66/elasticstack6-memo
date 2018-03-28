@@ -1,4 +1,3 @@
-
 =========================
 はじめてみよう
 =========================
@@ -12,35 +11,37 @@
 ---------------------------------------
 
 .. admonition:: 要件
-    :class: note
+   :class: note
 
    Java8を要求。Java9は未サポート。Oracle JDK or OpenJDK を使う。
 
 
 .. admonition:: Javaインストール
+   :class: note
 
-   | インストール
-   | # yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+   .. code-block:: console
 
-   | パスの確認
-   | # dirname $(readlink ($readlink $(which java)))
-   | /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/jre/bin
+      //インストール
+      # yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 
-   | 環境変数の設定
-   | # vi /etc/profile
-   | export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/jre/bin
-   | export PATH=$PATH:$JAVA_HOME/bin
-   | export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
-   | # source /etc/profile
+      //パスの確認
+      # dirname $(readlink ($readlink $(which java)))
+      /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/jre/bin
 
+      //環境変数の設定
+      # vi /etc/profile
+      export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/jre/bin
+      export PATH=$PATH:$JAVA_HOME/bin
+      export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+      # source /etc/profile
 
-Linuxでは、インストール前にJAVA_HOME環境変数が必要。LogStashのインストール中に参照するから。
-
+   Linuxの場合、LogStashのインストール中に参照するため、インストールの前にJAVA_HOME環境変数が必要となる。
 
 バイナリを使ってインストール
-=======================================================
+==================================================
 実際の環境にマッチするインストールファイルをダウンロードして、解凍する。
-Linuxならパッケージマネージャを使える。
+Linuxなパッケージマネージャを使える。
+
 
 パッケージリポジトリからインストール
 =======================================================
@@ -73,7 +74,7 @@ YUM
    |     whieh: no java in (/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin)
    |     could not find java; set JAVA_HOME or ensure java is in PATH
    |     chmod: `/etc/default/logstash` にアクセスできません： そのようなファイルやディレクトリはありません。
-   |     警告： %post(logstash-1:6.2.3-1.noarch) スクリプトの実行に失敗しました。狩猟ステータス 1
+   |     警告： %post(logstash-1:6.2.3-1.noarch) スクリプトの実行に失敗しました。終了ステータス 1
    |     Non-fatal POSTIN scriptlet failure in rom package 1:logstash-6.2.3-1.noarch
    |       検証中                 : 1:logstash-6.2.3-1.noarch
    |
@@ -95,7 +96,7 @@ YUM
    |
    |     完了しました!
 
-   | 最初JAVA_HOME忘れたので、上記メッセージ。
+   | 最初JAVA_HOME忘れたので、上記メッセージが出た。
    | yum remove logstashでいったん削除してやり直したのが、成功メッセージ。
 
 logstash.serviceについて
