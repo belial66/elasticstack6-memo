@@ -1,4 +1,4 @@
-Logstash Reference
+Elasticsearch Reference
 =============================
 
 .. toctree::
